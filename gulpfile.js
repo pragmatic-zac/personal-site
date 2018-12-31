@@ -8,6 +8,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
 
+var paths = {
+  dist: 'dist/'
+ };
+
 // Set the banner content
 var banner = ['/*!\n',
   ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
@@ -62,7 +66,8 @@ gulp.task('css:compile', function() {
     .pipe(header(banner, {
       pkg: pkg
     }))
-    .pipe(gulp.dest('./css'))
+    // .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
 });
 
 // Minify CSS
@@ -75,7 +80,8 @@ gulp.task('css:minify', ['css:compile'], function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./css'))
+    // .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
 
@@ -95,7 +101,8 @@ gulp.task('js:minify', function() {
     .pipe(header(banner, {
       pkg: pkg
     }))
-    .pipe(gulp.dest('./js'))
+    // .pipe(gulp.dest('./js'))
+    .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
 
