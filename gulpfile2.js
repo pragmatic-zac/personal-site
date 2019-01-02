@@ -8,6 +8,8 @@ var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
 
+// testing different deploy location
+
 // Set the banner content
 var banner = ['/*!\n',
   ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
@@ -40,12 +42,14 @@ gulp.task('vendor', function() {
       '!./node_modules/jquery/dist/core.js'
     ])
     .pipe(gulp.dest('./vendor/jquery'))
+    // .pipe(gulp.dest('./dist/jquery'))
 
   // jQuery Easing
   gulp.src([
       './node_modules/jquery.easing/*.js'
     ])
     .pipe(gulp.dest('./vendor/jquery-easing'))
+    // .pipe(gulp.dest('./dist/jquery-easing'))
 
 });
 
@@ -63,6 +67,7 @@ gulp.task('css:compile', function() {
       pkg: pkg
     }))
     .pipe(gulp.dest('./css'))
+    // .pipe(gulp.dest('./dist'))
 });
 
 // Minify CSS
@@ -76,6 +81,7 @@ gulp.task('css:minify', ['css:compile'], function() {
       suffix: '.min'
     }))
     .pipe(gulp.dest('./css'))
+    // .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
 
@@ -96,6 +102,7 @@ gulp.task('js:minify', function() {
       pkg: pkg
     }))
     .pipe(gulp.dest('./js'))
+    // .pipe(gulp.dest('./dist'))
     .pipe(browserSync.stream());
 });
 
