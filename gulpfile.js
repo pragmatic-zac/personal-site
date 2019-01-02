@@ -8,9 +8,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
 
-var paths = {
-  dist: 'dist/'
- };
+// testing different deploy location
 
 // Set the banner content
 var banner = ['/*!\n',
